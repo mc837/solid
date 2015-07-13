@@ -1,17 +1,29 @@
 ﻿namespace BreakingInterfaceSegregationPrinciple
 {
-    public interface IVehicle
+    public interface IVehicle 
     {
         void Accelerate();
         void Brake();
         void ChangeGear(int gear);
+//        void TurnOnRadio();
+//        void TurnOffRadio();
+//        void OpenSunRoof(int percentOpen);
+//        void CloseSunRoof();
+    }
+
+    public interface IControlRadio
+    {
         void TurnOnRadio();
         void TurnOffRadio();
+    }
+
+    public interface IControlSunRoof
+    {
         void OpenSunRoof(int percentOpen);
         void CloseSunRoof();
     }
 
-    #region What's wrong with the above?
+#region What's wrong with the above?
 // At first glance it seems fine… nothing bad going on here.
 // Or is there?
 //
