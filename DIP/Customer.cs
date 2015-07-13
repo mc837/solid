@@ -4,7 +4,14 @@ namespace BreakingDependencyInversionPrinciple
 {
     public class Customer
     {
-        ExceptionLogger _exceptionLogger = new ExceptionLogger();
+        private readonly ILog _log;
+
+        public Customer(ILog log)
+        {
+            _log = log;
+        }
+
+        //ExceptionLogger _exceptionLogger = new ExceptionLogger();
 
         public void Add()
         {
@@ -14,12 +21,17 @@ namespace BreakingDependencyInversionPrinciple
             }
             catch (Exception ex)
             {
-                _exceptionLogger.Log(ex);
+               _log.Log(ex);
             }
         }
     }
 
-    public class ExceptionLogger
+    public interface ILog
+    {
+        void Log(Exception exception);
+    }
+
+    public class ExceptionLogger :ILog
     {
         public void Log(Exception ex)
         {
