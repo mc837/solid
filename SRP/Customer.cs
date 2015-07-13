@@ -12,9 +12,14 @@ namespace BreakingSingleResponsibility
             }
             catch (Exception ex)
             {
-                System.IO.File.WriteAllText(@"C:\Error.txt", ex.ToString());
+                Log.Logit(ex.ToString());
             }
         }
+    }
+
+    public interface ILogStuf
+    {
+        void Log(string toString);
     }
 
     #region What's wrong with the above?
