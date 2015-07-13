@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Product.cs" />
     <Compile Include="ProductConsole.cs" />
-    <Compile Include="ProductType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
